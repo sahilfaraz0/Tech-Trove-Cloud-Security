@@ -25,16 +25,21 @@ The security architecture focuses on protecting data at rest, data in transit, a
 ## 🔐 Key Security Implementations
 
 * **Role-Based Access Control (RBAC):** Enforced the principle of least privilege using granular MySQL `GRANT` commands for distinct roles (Admin, Manager, Engineer, Analyst, Support, Auditor, Team Lead).
+
 ![RBAC](Images/RBAC-1.png)
 ![RBAC](Images/RBAC-2.png)
 * **Cryptographic Controls:** Applied AES-256 encryption to sensitive fields including client names, emails, budgets, and issue reports.
+
 ![Encrypt](Images/Encrypt-1.png)
 ![Encrypt](Images/Encrypt-2.png)
 * **Dynamic Decrypted Views:** Created secure database views that dynamically decrypt data only for highly privileged roles, leaving data masked as cipher text for unauthorized engineers and analysts.
+
 ![Decrypt](Images/Decrypt.png)
 * **Automated Audit Trails:** Developed custom SQL triggers and stored procedures to instantly log all data access and modification events into an `access_logs` table for compliance tracking.
+
 ![Access Log](Images/Access-Log.png)
 * **Threat Mitigation:** Implemented parameterized SQL queries to successfully block SQL injection attempts.
+
 ![Block](Images/Block.png)
 
 ---
@@ -44,11 +49,16 @@ The security architecture focuses on protecting data at rest, data in transit, a
 To maintain high availability and rapidly detect anomalies, the following AWS monitoring strategies were integrated:
 
 * **Amazon CloudWatch:** Configured to monitor CPU utilization, storage capacity, and query latency with automated alarm thresholds.
+
 ![CloudWatch](Images/CloudWatch.png)
+
 ![CloudWatch](Images/CloudWatch-Alarm-1.png)
+
 ![CloudWatch](Images/CloudWatch-Alarm-2.png)
 * **AWS CloudTrail:** Enabled with MySQL access logs to trace administrator actions, monitor privilege changes, and detect unauthorized access attempts.
+
 ![CloudTrail](Images/CloudTrail.png)
+
 * **AWS Inspector:** Scheduled to evaluate the RDS environment against security baselines and identify misconfigurations.
 
 ---
