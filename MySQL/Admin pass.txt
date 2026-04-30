@@ -1,0 +1,21 @@
+manager_user StrongPass#123
+
+engineer_user Engineer#321
+
+analyst_user Analyst#456
+
+support_user Support#654
+
+auditor_user Audit#888
+
+admin_user Admin#999
+
+teamlead_user TeamLead#777
+
+
+
+
+ENCRYPTION:
+SET @key = 'T3chTr0v3_S3cur3Key#2025';
+
+SET SQL_SAFE_UPDATES = 0;
